@@ -22,28 +22,33 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewOfColors.layer.cornerRadius = 24
+        redValueLabel.text = String(round(redSlider.value * 1000) / 1000)
+        greenValueLabel.text = String(round(greenSlider.value * 1000) / 1000)
+        blueValueSlider.text = String(round(blueSlider.value * 1000) / 1000)
+        
         defineColor()
     }
     
     @IBAction func redSliderValueChanged() {
-        redValueLabel.text = String(redSlider.value)
+        redValueLabel.text = String(round(redSlider.value * 1000) / 1000)
         defineColor()
     }
     
     @IBAction func greenSliderValueChanged() {
-        greenValueLabel.text = String(greenSlider.value)
+        greenValueLabel.text = String(round(greenSlider.value * 1000) / 1000)
         defineColor()
     }
     
     @IBAction func blueSliderValueChanged() {
-        blueValueSlider.text = String(blueSlider.value)
+        blueValueSlider.text = String(round(blueSlider.value * 1000) / 1000)
         defineColor()
     }
     
     
     
     func defineColor() {
-        viewColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1.0) 
+        viewColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1.0)
         viewOfColors.backgroundColor = viewColor
     }
     
